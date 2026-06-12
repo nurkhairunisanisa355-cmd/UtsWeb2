@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CustomerController;
 
 // Public routes
 Route::get('/', function () {
@@ -43,4 +44,5 @@ Route::middleware(['auth'])->group(function () {
 // Product management routes
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductsController::class);
+    Route::resource('customers', CustomerController::class);
 });
